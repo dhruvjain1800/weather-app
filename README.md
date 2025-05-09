@@ -85,7 +85,7 @@ src/
 - Run tests with:
 
 ```bash
-yarn test
+yarn test -u
 # or
-npm test
+npm run test -u
 ```
