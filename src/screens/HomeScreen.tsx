@@ -11,6 +11,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from '../redux/store';
 import {weatherThunk} from '../redux/thunks/weatherThunk';
 import WeatherIcon from '../components/weather-icon/WeatherIcon';
+import {getData, storeData} from '../utils/storage';
 
 const HomeScreen = () => {
   const {theme} = useTheme();
@@ -24,18 +25,27 @@ const HomeScreen = () => {
     error,
   } = useSelector((state: RootState) => state.weather);
 
-  useEffect(() => {
-    console.log('testlog weatherdata', weatherData);
-  }, [weatherData]);
   const onItemSelect = async (res: SearchResult) => {
     setShowSearchModal(false);
     setLocation(res);
+    storeData('location', res);
     dispatch(
       weatherThunk(
         `${res.name},${res.state}${res.country ? `,${res.country}` : ''}`,
       ),
     );
   };
+
+  useEffect(() => {
+    getData('location')
+      .then(_val => {
+        if (_val) {
+          const _location = JSON.parse(_val);
+          onItemSelect(_location);
+        }
+      })
+      .catch(_ => {});
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topRow}>
