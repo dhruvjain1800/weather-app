@@ -28,7 +28,7 @@ A simple yet scalable React Native Weather App that fetches and displays real-ti
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/weather-app.git
+git clone https://github.com/dhruvjain1800/weather-app.git
 cd weather-app
 ```
 
@@ -89,12 +89,6 @@ yarn test
 # or
 npm test
 ```
-
----
-
-## 📸 Screenshots
-
-_Add screenshots here if needed._
 
 ---
 
