@@ -89,9 +89,3 @@ yarn test
 # or
 npm test
 ```
-
----
-
-## 📄 License
-
-MIT
