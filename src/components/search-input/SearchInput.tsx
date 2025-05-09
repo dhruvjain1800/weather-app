@@ -12,6 +12,8 @@ import {useTheme} from '../../theme';
 interface SearchInputProps extends TextInputProps {
   onPress?: () => void;
   containerStyle?: StyleProp<ViewStyle>;
+  testID?: string;
+  inputTestID?: string;
 }
 
 const SearchInput = (
@@ -22,9 +24,11 @@ const SearchInput = (
   const styles = SearchInputStyles(theme);
   return (
     <Pressable
+      testID={rest.testID}
       style={[styles.container, containerStyle]}
       onPress={rest.onPress}>
       <TextInput
+        testID={rest.inputTestID}
         ref={ref}
         style={styles.input}
         {...rest}

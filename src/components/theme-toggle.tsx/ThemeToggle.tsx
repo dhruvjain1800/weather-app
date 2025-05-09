@@ -10,6 +10,7 @@ const ThemeToggle = () => {
   const styles = ThemeToggleStyles();
   return (
     <Pressable
+      testID="THM-TOGL"
       onPress={toggleTheme}
       style={[
         styles.darkModeToggleButton,

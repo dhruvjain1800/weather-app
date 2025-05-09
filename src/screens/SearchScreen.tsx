@@ -79,6 +79,7 @@ const SearchScreen = ({
   };
   return (
     <Modal
+      testID="SRC-MDL"
       isVisible={isVisible}
       style={styles.modal}
       onBackButtonPress={close}

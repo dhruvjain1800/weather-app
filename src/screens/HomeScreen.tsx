@@ -40,6 +40,8 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.topRow}>
         <SearchInput
+          testID="INPT-PRS"
+          inputTestID="SRC-INPT"
           containerStyle={styles.inputContainer}
           onPress={() => setShowSearchModal(true)}
           placeholder="Search here"
@@ -67,7 +69,7 @@ const HomeScreen = () => {
             <WeatherIcon code={weatherData.weather[0]?.icon} />
             <Text
               style={styles.temperature}>{`${weatherData.main.temp}°`}</Text>
-            <Text style={styles.weatherTitle}>
+            <Text testID="WTHR-NAME" style={styles.weatherTitle}>
               {weatherData.weather[0]?.main}
             </Text>
           </View>
