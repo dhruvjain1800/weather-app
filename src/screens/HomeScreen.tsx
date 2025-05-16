@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, Text, View} from 'react-native';
+import {ActivityIndicator, SafeAreaView, Text, View} from 'react-native';
 import {HomeScreenStyles} from '../styles';
 import {useTheme} from '../theme';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import SearchInput from '../components/search-input/SearchInput';
 import ThemeToggle from '../components/theme-toggle.tsx/ThemeToggle';
 import SearchScreen from './SearchScreen';

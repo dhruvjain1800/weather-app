@@ -1,3 +1,4 @@
 import {HomeScreenStyles} from './HomeScreenStyles';
 import {SearchScreenStyles} from './SearchScreenStyles';
-export {HomeScreenStyles, SearchScreenStyles};
+import {ListScreenStyles} from './ListScreenStyles';
+export {HomeScreenStyles, SearchScreenStyles, ListScreenStyles};

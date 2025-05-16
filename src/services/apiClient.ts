@@ -1,16 +1,12 @@
-import axios, { AxiosError } from 'axios';
+import axios, {AxiosError} from 'axios';
 
-const API_KEY = '43d65c9e1e82c7fc1e29d07bece50d2a';
+// const API_KEY = '43d65c9e1e82c7fc1e29d07bece50d2a';
 
 const apiClient = axios.create({
-  baseURL: 'https://api.openweathermap.org',
+  baseURL: 'https://fakestoreapi.com/',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
-  },
-  params: {
-    appid: API_KEY,
-    units: 'metric', // You can change to 'imperial' if needed
   },
 });
 
@@ -31,7 +27,12 @@ apiClient.interceptors.response.use(
     return response;
   },
   function (error: AxiosError) {
-    console.log('API response error--', error.config, error.request, error.message);
+    console.log(
+      'API response error--',
+      error.config,
+      error.request,
+      error.message,
+    );
     return Promise.reject(error);
   },
 );

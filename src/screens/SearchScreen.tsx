@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Modal from 'react-native-modal';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import SearchInput from '../components/search-input/SearchInput';
 import {searchLocation} from '../services';
 import {
   ActivityIndicator,
   FlatList,
+  SafeAreaView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -87,35 +87,33 @@ const SearchScreen = ({
       animationOut={'fadeOut'}
       animationInTiming={100}
       animationOutTiming={100}>
-      <SafeAreaProvider>
-        <SafeAreaView edges={['top']} style={styles.container}>
-          <View style={styles.topRow}>
-            <SearchInput
-              ref={inputRef}
-              containerStyle={styles.inputContainer}
-              value={inputValue}
-              onChangeText={onChange}
-              placeholder="Search here"
-              placeholderTextColor={theme.textSecondary}
-            />
+      <SafeAreaView edges={['top']} style={styles.container}>
+        <View style={styles.topRow}>
+          <SearchInput
+            ref={inputRef}
+            containerStyle={styles.inputContainer}
+            value={inputValue}
+            onChangeText={onChange}
+            placeholder="Search here"
+            placeholderTextColor={theme.textSecondary}
+          />
+        </View>
+        {loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size={40} />
           </View>
-          {loading ? (
-            <View style={styles.loadingContainer}>
-              <ActivityIndicator size={40} />
-            </View>
-          ) : (
-            <FlatList
-              data={result}
-              renderItem={renderItem}
-              ListEmptyComponent={
-                <View style={styles.emptyContainer}>
-                  <Text style={styles.itemText}>No Result Found</Text>
-                </View>
-              }
-            />
-          )}
-        </SafeAreaView>
-      </SafeAreaProvider>
+        ) : (
+          <FlatList
+            data={result}
+            renderItem={renderItem}
+            ListEmptyComponent={
+              <View style={styles.emptyContainer}>
+                <Text style={styles.itemText}>No Result Found</Text>
+              </View>
+            }
+          />
+        )}
+      </SafeAreaView>
     </Modal>
   );
 };
